@@ -140,10 +140,10 @@ config.pushover = {
 }
 
 config.blotter = {
-  enabled: false,
+  enabled: true,
   filename: 'blotter.csv',
   dateFormat: 'l LT',
-  timezone: -300, // -300 minutes for EST(-5:00), only used if exchange doesn't provide correct timezone
+  timezone: -300, // EST -5:00, only used if exchange doesn't provide correct timezone
 }
 
 // want Gekko to send a mail on buy or sell advice?

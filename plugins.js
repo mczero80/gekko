@@ -255,6 +255,10 @@ var plugins = [
     slug: 'blotter',
     async: false,
     modes: ['realtime'],
+    dependencies: [{
+      module: 'fs',
+      version: '0.0.1-security'
+    }]
   },
 ];
 
