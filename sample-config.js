@@ -218,7 +218,8 @@ config.telegrambot = {
   enabled: true,
   emitUpdates: true,
   token: '', // Talk to botFather on Telegram to get your token and bot name
-  botName: ''
+  botName: '',
+  chatId: '' // Ask https://telegram.me/userinfobot for your chatId
 };
 
 

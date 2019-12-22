@@ -56,7 +56,11 @@ Actor.prototype.processTrade = function (trade) {
 }
 
 Actor.prototype.verifyQuestion = function (msg, text) {
-  this.chatId = msg.chat.id;
+  if (msg.chat.id == config.telegrambot.chatId){
+    this.chatId = msg.chat.id;
+  } else{
+    this.chatId == null;
+  }
 
   // simple parsing that supports a command and single argument
   var tokens = text[1].split(" ");
