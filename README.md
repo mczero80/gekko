@@ -16,7 +16,39 @@ See [the documentation website](https://gekko.wizb.it/docs/introduction/about_ge
 
 ## Installation & Usage
 
-See [the installing Gekko doc](https://gekko.wizb.it/docs/installation/installing_gekko.html).
+Gekko requires [nodejs](https://nodejs.org/en/) to be installed. Go ahead and install this if it's not already (Gekko requires at least version 8.11.2). We advice to download the current LTS.
+
+The recommended way of downloading Gekko is by using git. This makes keeping Gekko up to date a lot easier. Run this in a terminal:
+
+```
+git clone git://github.com/askmike/gekko.git
+cd gekko
+```
+
+Once you have Gekko downloaded you need to install the dependencies, open your terminal and navigate to the gekko folder and run:
+
+```
+CPPFLAGS="$CPPFLAGS -fPIC" npm install --build-from-source sqlite3
+npm install --only=production
+```
+
+NOTE: You may see a vulnerability warning from NPM, if you run npm audit with --force, Gekko will break. See [here](https://github.com/askmike/gekko/issues/2585#issuecomment-428450997).
+
+You also need to install Gekko Broker's dependencies, run:
+
+```
+cd exchange
+npm install --only=production
+cd ..
+```
+
+After all the above you can start Gekko by running the following in your terminal:
+
+```
+node gekko --ui
+```
+
+For additional instructions, see [the installing Gekko doc](https://gekko.wizb.it/docs/installation/installing_gekko.html).
 
 ## Community & Support
 
