@@ -144,11 +144,12 @@ if (this.waitForVolume && advice.recommendation != this.previousAdvice.recommend
 
 
 // Set flags to delay trade until candle with enough volume
-if (this.candle.volume < avgVol && !this.waitForVolume) {
-  this.previousAdvice = advice;
-  this.waitForVolume = true;
-  return log.info('[Papertrader] Not enough volume to process trade, will wait til next candle');
-}
+	// Don't process advice if current and last would cancel out each other (while waiting for volume)
+	if (this.waitForVolume && advice.recommendation != this.previousAdvice.recommendation) {
+		this.waitForVolume = false;
+		this.previousAdvice = null;
+		return log.warn('[Papertrader] Cancel trade as previous unexecuted trade would negate each other');
+	}
 
   let action;
   if(advice.recommendation === 'short') {
