@@ -12,7 +12,7 @@ var advised = false;
 
 // Prepare everything our strat needs
 strat.init = function() {
-  // your code!
+  this.requiredHistory = this.tradingAdvisor.historySize;
 }
 
 // What happens on every new candle?
