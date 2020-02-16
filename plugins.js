@@ -266,7 +266,14 @@ var plugins = [
       module: 'request',
       version: '2.85.0'
     }]
-},
+  },
+  {
+    name: "Plotly",
+    description: "Plots Gekko data onto a Plotly chart for easier analysis",
+    slug: "plotly",
+    async: false,
+    modes: ["backtest"]
+  },
 ];
 
 module.exports = plugins;
